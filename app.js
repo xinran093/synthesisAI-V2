@@ -329,9 +329,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const nodes = Object.values(studentNodes);
             const links = Object.values(studentLinks);
 
-            // Set up SVG dimensions
-            const width = networkSvg.node().getBoundingClientRect().width;
-            const height = networkSvg.node().getBoundingClientRect().height;
+            // Set up SVG dimensions (responsive)
+let width = networkSvg.node().getBoundingClientRect().width;
+let height = networkSvg.node().getBoundingClientRect().height;
+networkSvg.attr('width', '100%').attr('height', '100%').attr('viewBox', `0 0 ${width} ${height}`);
+
 
             // Create color scale
             const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -389,12 +391,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 .selectAll('g')
                 .data(nodes)
                 .enter()
-                .append('g');
+                .append('g')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended)
+                );
+
+            // Drag functions
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+
 
             // Add circles
             node.append('circle')
                 .attr('r', d => Math.max(5, Math.log(d.commentCount) * 3))
-                .attr('fill', d => colorScale(d.name[0]));
+                .attr('fill', d => colorScale(d.name[0]))
+                .on('mouseover', function(event, d) {
+                    d3.select(this).attr('stroke', '#fc5c7d').attr('stroke-width', 3);
+                    node.selectAll('text').filter(t => t === d).attr('font-weight', 'bold');
+                })
+                .on('mouseout', function(event, d) {
+                    d3.select(this).attr('stroke', null).attr('stroke-width', null);
+                    node.selectAll('text').filter(t => t === d).attr('font-weight', null);
+                });
 
             // Add text labels
             node.append('text')
@@ -409,6 +441,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .text(d => `${d.name} (ID: ${d.id})
 Comments: ${d.commentCount}`);
 
+            // Zoom and pan behavior
+            networkSvg.call(d3.zoom()
+                .scaleExtent([0.2, 3])
+                .on('zoom', (event) => {
+                    networkSvg.selectAll('g').attr('transform', event.transform);
+                })
+            );
+
             // Update positions on each tick
             simulation.on('tick', () => {
                 link
@@ -419,6 +459,17 @@ Comments: ${d.commentCount}`);
 
                 node
                     .attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+
+            // Responsive resize
+            window.addEventListener('resize', () => {
+                width = networkSvg.node().getBoundingClientRect().width;
+                height = networkSvg.node().getBoundingClientRect().height;
+                networkSvg.attr('viewBox', `0 0 ${width} ${height}`);
+                simulation.force('center', d3.forceCenter(width / 2, height / 2));
+                simulation.force('x', d3.forceX(width / 2).strength(0.1));
+                simulation.force('y', d3.forceY(height / 2).strength(0.1));
+                simulation.alpha(0.7).restart();
             });
         }
     });
