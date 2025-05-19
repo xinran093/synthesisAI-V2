@@ -201,3 +201,124 @@ h2 {
     background: #fff;
     box-shadow: 0 0 0 3px #e4eaff;
 }
+
+/* --- App Header & Menu System --- */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; /* Example padding, adjust as needed */
+    background: var(--header-bg); /* Apply header background */
+    color: var(--header-text); /* Apply header text color */
+}
+
+.app-menu-wrapper {
+    position: relative; /* For positioning the dropdown */
+    display: flex; /* To align button if there were other items here */
+    align-items: center;
+}
+
+#app-menu-button {
+    /* Styles are mostly inline, add hover/focus if needed */
+    color: var(--header-text); /* Ensured for light mode */
+    padding: 5px;
+    margin-right: 10px; /* Add some space between menu icon and brain icon */
+}
+
+body.dark #app-menu-button {
+    color: var(--header-text); /* Header icon should remain consistent with header text color */
+}
+
+.app-menu-dropdown {
+    position: absolute;
+    top: 100%; /* Position below the menu button */
+    left: 0; /* Align to the left of app-menu-wrapper */
+    background-color: var(--card-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    min-width: 220px;
+    margin-top: 8px; /* Small gap from the button */
+    padding: 8px 0; /* Padding for top/bottom of the overall menu */
+}
+
+.app-menu-item {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* For items like Theme label and its controls */
+    font-size: 0.95rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--input-border);
+}
+
+.app-menu-item:last-child {
+    border-bottom: none;
+}
+
+/* Styling for theme controls inside menu */
+.app-menu-item #dark-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3rem; /* Match original if desired, or adjust */
+    padding: 0 5px;
+    color: var(--text);
+}
+
+.app-menu-item #theme-color {
+    width: 28px;
+    height: 28px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+    vertical-align: middle; /* Should be handled by flex */
+    padding: 0; /* Remove default padding for color input */
+    border-radius: 4px;
+}
+
+/* Specific styling for mute button container if needed, though app-menu-item should cover most */
+#app-menu-sound-controls {
+    /* Mute button itself is styled in JS, this is for the container div */
+    justify-content: flex-start; /* So the button doesn't stretch if it's the only child */
+}
+
+#app-menu-sound-controls #mute-btn {
+    color: var(--text); /* Ensure mute button text is visible */
+}
+
+/* Styling for placeholder buttons */
+.app-menu-button-style {
+    display: block; /* Make it take full width of menu item */
+    width: calc(100% - 30px); /* Full width minus padding */
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.95rem; /* Match other menu items */
+    /* padding is handled by .app-menu-item already, but if used standalone: */
+    /* padding: 10px 15px; */ 
+}
+
+.app-menu-button-style:hover {
+    background-color: var(--input-bg); /* Subtle hover effect */
+}
+
+/* Ensure dark mode applies correctly to menu items */
+body.dark .app-menu-item,
+body.dark .app-menu-button-style,
+body.dark .app-menu-item #dark-toggle {
+    color: var(--text);
+    border-bottom-color: var(--input-border); /* Use dark mode border color */
+}
+
+body.dark .app-menu-button-style:hover {
+    background-color: var(--input-bg); /* Dark mode hover */
+}
+
+body.dark .app-menu-item:last-child {
+    border-bottom: none;
+}

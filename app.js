@@ -27,23 +27,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkToggle = document.getElementById('dark-toggle');
     const darkIcon = document.getElementById('dark-icon');
     const themeColor = document.getElementById('theme-color');
+
+    // Menu setup
+    const appMenuButton = document.getElementById('app-menu-button');
+    const appMenu = document.getElementById('app-menu');
+
+    if (appMenuButton && appMenu) {
+        appMenuButton.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevents click from immediately closing menu if menu itself is clicked
+            const isHidden = appMenu.style.display === 'none' || appMenu.style.display === '';
+            appMenu.style.display = isHidden ? 'block' : 'none';
+        });
+
+        // Close menu if clicking outside
+        document.addEventListener('click', (event) => {
+            if (!appMenu.contains(event.target) && event.target !== appMenuButton) {
+                appMenu.style.display = 'none';
+            }
+        });
+    }
+
     // Sound mute button
-    // Create mute button
+    const soundControlsContainer = document.getElementById('app-menu-sound-controls');
     let muteBtn = document.createElement('button');
     muteBtn.id = 'mute-btn';
     muteBtn.title = 'Mute/unmute AI sound';
+    // Adjust styles for menu context
     muteBtn.style.background = 'none';
     muteBtn.style.border = 'none';
     muteBtn.style.cursor = 'pointer';
-    muteBtn.style.fontSize = '1.4rem';
-    muteBtn.style.marginLeft = '10px';
-    muteBtn.style.verticalAlign = 'middle';
-    muteBtn.innerHTML = soundMuted ? '🔇' : '🔔';
-    document.querySelector('.header-controls').appendChild(muteBtn);
+    muteBtn.style.fontSize = '1.2rem'; // Slightly smaller for menu
+    muteBtn.style.padding = '5px';
+    muteBtn.innerHTML = soundMuted ? '🔇 Mute Sound' : '🔔 Unmute Sound'; // Add text for clarity
+
+    if (soundControlsContainer) {
+        soundControlsContainer.appendChild(muteBtn);
+    } else {
+        // Fallback if the designated container isn't found (should not happen with correct HTML)
+        console.warn('Could not find app-menu-sound-controls to append mute button.');
+        // document.querySelector('.header-controls').appendChild(muteBtn); // Old behavior as a last resort
+    }
 
     muteBtn.onclick = () => {
         soundMuted = !soundMuted;
-        muteBtn.innerHTML = soundMuted ? '🔇' : '🔔';
+        muteBtn.innerHTML = soundMuted ? '🔇 Mute Sound' : '🔔 Unmute Sound';
         localStorage.setItem('synthai_muted', soundMuted ? 'true' : 'false');
     };
 
