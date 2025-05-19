@@ -2,6 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const collaborativeWriting = document.getElementById('collaborative-writing');
     const networkSvg = d3.select('#network-graph');
     const cloudSvg = d3.select('#word-cloud');
+
+    // --- AI Integration ---
+    const askAiBtn = document.getElementById('ask-ai-btn');
+    const aiResponseDiv = document.getElementById('ai-response');
+    if (askAiBtn && aiResponseDiv && collaborativeWriting) {
+        askAiBtn.addEventListener('click', async () => {
+            const userText = collaborativeWriting.value.trim();
+            if (!userText) {
+                aiResponseDiv.textContent = 'Please enter some text.';
+                return;
+            }
+            aiResponseDiv.textContent = 'Thinking...';
+            try {
+                const response = await fetch('http://localhost:3001/api/ask-ai', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: userText })
+                });
+                const data = await response.json();
+                if (data.ai) {
+                    aiResponseDiv.textContent = data.ai;
+                } else {
+                    aiResponseDiv.textContent = data.error || 'No response from AI.';
+                }
+            } catch (err) {
+                aiResponseDiv.textContent = 'Error connecting to AI service.';
+            }
+        });
+    }
     
     // Basic auto-save functionality (local storage)
     collaborativeWriting.addEventListener('input', () => {
