@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="app-header">
+        <span class="app-title-icon" style="font-size:2.1rem;vertical-align:middle; margin-left: 15px;">🧠</span> 
+        <span class="app-title-text">SynthesisAI Collaborative Lab</span>
         <div class="app-menu-wrapper">
             <button id="app-menu-button" title="Open menu" style="background:none;border:none;cursor:pointer;font-size:1.5rem;vertical-align:middle;">
                 ☰
@@ -26,12 +28,10 @@
                 <div id="app-menu-sound-controls" class="app-menu-item">
                     <!-- Mute button will be added here by app.js -->
                 </div>
-                <button class="app-menu-item app-menu-button-style" id="add-annotations-btn">Add Annotations</button>
-                <button class="app-menu-item app-menu-button-style" id="add-readings-btn">Add Readings</button>
+                <button class="app-menu-item app-menu-button-style" id="add-annotations-btn">Load Annotations</button>
+                <button class="app-menu-item app-menu-button-style" id="add-readings-btn">Load Readings</button>
             </div>
         </div>
-        <span class="app-title-icon" style="font-size:2.1rem;vertical-align:middle; margin-left: 15px;">🧠</span> 
-        <span class="app-title-text">SynthesisAI Collaborative Lab</span>
     </div>
     <button id="summaryButton">Summary</button>
     <div class="container">
@@ -47,10 +47,43 @@
         <div class="right-column">
             <h2>Collaborative Writing Space</h2>
             <textarea id="collaborative-writing" placeholder="Start writing collaboratively..."></textarea>
-            <button id="ask-ai-btn" style="margin-top:10px;">Ask AI</button>
-            <div id="ai-response" style="margin-top:10px; background:#f3f3f3; padding:10px; border-radius:5px; min-height:40px;"></div>
+            <div class="widget ai-assistant-widget">
+                <h3><i class="fas fa-robot"></i> AI Assistant</h3>
+                <p>Ask the AI about your data or for insights.</p>
+                
+                <!-- Chat Messages Area -->
+                <div id="ai-chat-window" class="chat-window-style"> 
+                    <!-- Chat messages will be appended here by JavaScript -->
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-area">
+                    <textarea id="ai-query-input" placeholder="Type your question for the AI..." rows="2"></textarea>
+                    <button id="ask-ai-btn" class="button-style">Ask AI</button>
+                </div>
+            </div>
         </div>
     </div>
+    <footer>
+        <p>&copy; <span id="currentYear"></span> SynthesisAI. All rights reserved.</p>
+        <button id="adminLogsBtn" class="button-style">Admin Logs</button>
+    </footer>
+
+    <!-- MODAL FOR ADMIN LOGS -->
+    <div id="adminLogsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeAdminModalBtn">&times;</span>
+            <h2>Admin Logs</h2>
+            <div id="adminLogsContent" class="modal-log-content">
+                <h3>Clickstream Events:</h3>
+                <pre id="clickstreamLogData"></pre>
+                <h3>Visualization Data Events:</h3>
+                <pre id="visualizationLogData"></pre>
+            </div>
+        </div>
+    </div>
+
     <script src="app.js"></script>
+    <input type="file" id="csv-upload-input" accept=".csv" style="display: none;">
 </body>
 </html>

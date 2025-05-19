@@ -1,324 +1,365 @@
 :root {
-    --accent: #6a82fb;
-    --accent2: #fc5c7d;
-    --bg-gradient: linear-gradient(135deg, #f3f8ff 0%, #e9e4fc 100%);
-    --card-bg: rgba(255,255,255,0.97);
-    --text: #222;
-    --header-bg: linear-gradient(90deg, var(--accent) 60%, #00c6ff 100%);
-    --header-text: #fff;
-    --input-bg: #f8fafd;
-    --input-border: #e1e6f9;
-    --shadow: 0 8px 32px 0 rgba(60,60,130,0.13), 0 2px 8px rgba(0,0,0,0.04);
-    --shadow-hover: 0 12px 48px 0 rgba(60,60,130,0.20), 0 4px 16px rgba(0,0,0,0.09);
+    --background-color-primary: #ffffff;
+    --background-color-secondary: #f8f9fa;
+    --background-color-tertiary: #e9ecef;
+    --text-color-primary: #212529;
+    --text-color-secondary: #495057;
+    --text-color-button: #ffffff;
+    --accent-color: #007bff;
+    --accent-color-dark: #0056b3;
+    --accent-color-secondary: #6c757d;
+    --border-color: #ced4da;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-family: var(--font-family-sans-serif);
     margin: 0;
-    padding: 0;
+    padding: 20px;
     box-sizing: border-box;
-    background: var(--bg-gradient);
+    background-color: var(--background-color-primary);
+    color: var(--text-color-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    color: var(--text);
-    transition: background 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-body.dark {
-    --accent: #00c6ff;
-    --accent2: #6a82fb;
-    --bg-gradient: linear-gradient(135deg, #181d2a 0%, #232946 100%);
-    --card-bg: #232946;
-    --text: #eaeaea;
-    --header-bg: linear-gradient(90deg, #232946 60%, var(--accent) 100%);
-    --header-text: #fff;
-    --input-bg: #232946;
-    --input-border: #2e3450;
-    --shadow: 0 8px 32px 0 rgba(0,198,255,0.09), 0 2px 8px rgba(0,0,0,0.17);
-    --shadow-hover: 0 12px 48px 0 rgba(0,198,255,0.13), 0 4px 16px rgba(0,0,0,0.23);
+body.dark-theme {
+    --background-color-primary: #1a1a1a;
+    --background-color-secondary: #2c2c2c;
+    --background-color-tertiary: #383838;
+    --text-color-primary: #e0e0e0;
+    --text-color-secondary: #b0b0b0;
+    --text-color-button: #ffffff;
+    --accent-color: #00c6ff; /* Brighter accent for dark mode */
+    --accent-color-dark: #00a3cc;
+    --accent-color-secondary: #5a5a5a;
+    --border-color: #444444;
+    --shadow-color: rgba(255, 255, 255, 0.05);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* General Element Styling */
+h1, h2, h3 {
+    color: var(--text-color-primary);
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color-dark);
+    text-decoration: underline;
+}
+
+button, .button-style {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--text-color-button);
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover, .button-style:hover {
+    background-color: var(--accent-color-dark);
+}
+
+textarea, input[type="text"], input[type="file"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-primary);
+    box-sizing: border-box;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="file"]:focus, input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--accent-color), 0.25);
+}
+
+/* Layout */
 .container {
     display: flex;
-    height: 100vh;
-    gap: 32px;
-    max-width: 1400px;
-    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1600px; /* Max width for the main content area */
+    margin: 0 auto; /* Center the container */
     box-sizing: border-box;
-    animation: fadeInUp 1.2s cubic-bezier(.22,1,.36,1);
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(60px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .left-column, .right-column {
-    flex: 1;
-    padding: 32px 24px;
-    background: rgba(255,255,255,0.97);
-    border-radius: 22px;
-    box-shadow: 0 8px 32px 0 rgba(60,60,130,0.13), 0 2px 8px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 0;
-    transition: box-shadow 0.3s, transform 0.3s;
-    animation: cardIn 1.25s cubic-bezier(.22,1,.36,1);
-}
-
-.left-column:hover, .right-column:hover {
-    box-shadow: 0 12px 48px 0 rgba(60,60,130,0.20), 0 4px 16px rgba(0,0,0,0.09);
-    transform: translateY(-4px) scale(1.01);
-}
-
-@keyframes cardIn {
-    from { opacity: 0; transform: scale(0.96) translateY(30px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-.left-column {
-    margin-right: 8px;
-    background: #f9fafd;
-    border: 1px solid #e0e7ef;
-}
-
-.right-column {
-    background: #fff;
-    border: 1px solid #ddd;
-}
-
-h2 {
-    border-bottom: 2px solid #6a82fb;
-    padding-bottom: 10px;
-    color: #444;
-    margin-bottom: 22px;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 0.01em;
-    background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-::-webkit-input-placeholder { color: #b0b8c9; font-style: italic; }
-::-moz-placeholder { color: #b0b8c9; font-style: italic; }
-:-ms-input-placeholder { color: #b0b8c9; font-style: italic; }
-::placeholder { color: #b0b8c9; font-style: italic; }
-
-#graph-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 700px;
-    background-color: #f4f4f4;
+    background-color: var(--background-color-secondary);
+    padding: 20px;
     border-radius: 8px;
-    padding: 10px;
-    gap: 10px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    flex-basis: 50%; /* Each column takes up half the space */
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Prevent flex items from overflowing */
+}
+
+/* Specific App Sections */
+#graph-container, #word-cloud-container {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--background-color-primary);
+    flex-grow: 1; /* Allow graph containers to grow */
+    display: flex; /* For centering SVG if smaller */
+    align-items: center;
+    justify-content: center;
 }
 
 #network-graph, #word-cloud {
-    flex: 1;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-#network-graph {
-    min-height: 400px;
-}
-
-#word-cloud {
-    min-height: 300px;
-    max-width: 100%;
-    max-height: 350px;
+    display: block; /* SVG default behavior */
     width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    margin: 0 auto;
-    display: block;
-    padding: 0;
-}
-
-#word-cloud text {
-    transition: all 0.3s ease;
-    pointer-events: auto;
-    max-width: 100%;
-    overflow-wrap: break-word;
-}
-
-#graph-container {
-    overflow: hidden;
-}
-
-#word-cloud text {
-    transition: all 0.3s ease;
-}
-
-#word-cloud text:hover {
-    opacity: 0.7;
-    cursor: pointer;
-}
-
-#network-graph {
-    width: 100%;
-    height: 100%;
-    min-height: 500px; /* Ensure minimum height */
-}
-
-#network-graph text {
-    pointer-events: none;
-    user-select: none;
-    font-size: 10px; /* Slightly larger text */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 450px; /* Max height for visualizations */
 }
 
 #collaborative-writing {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    min-height: 180px;
-    max-height: 320px;
+    min-height: 150px;
     resize: vertical;
-    padding: 18px 14px;
-    border: 2px solid var(--input-border);
-    border-radius: 12px;
-    font-size: 18px;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 12px rgba(106,130,251,0.05);
-    background: linear-gradient(135deg, var(--input-bg) 80%, var(--card-bg) 100%);
-    transition: border 0.25s, box-shadow 0.25s, background 0.25s;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    font-style: normal;
-    box-sizing: border-box;
-    overflow: auto;
 }
 
-#collaborative-writing:focus {
-    border: 2px solid #6a82fb;
-    outline: none;
-    background: #fff;
-    box-shadow: 0 0 0 3px #e4eaff;
-}
-
-/* --- App Header & Menu System --- */
-
+/* Menu Styles */
 .app-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Example padding, adjust as needed */
-    background: var(--header-bg); /* Apply header background */
-    color: var(--header-text); /* Apply header text color */
+    padding: 10px 20px;
+    background-color: var(--accent-color-secondary);
+    color: var(--text-color-button); /* Assuming button text color works for header */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .app-menu-wrapper {
-    position: relative; /* For positioning the dropdown */
-    display: flex; /* To align button if there were other items here */
-    align-items: center;
+    position: relative;
 }
 
 #app-menu-button {
-    /* Styles are mostly inline, add hover/focus if needed */
-    color: var(--header-text); /* Ensured for light mode */
-    padding: 5px;
-    margin-right: 10px; /* Add some space between menu icon and brain icon */
-}
-
-body.dark #app-menu-button {
-    color: var(--header-text); /* Header icon should remain consistent with header text color */
+    background: none;
+    border: none;
+    color: inherit; /* Inherit from header */
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 .app-menu-dropdown {
+    display: none; /* Managed by JS */
     position: absolute;
-    top: 100%; /* Position below the menu button */
-    left: 0; /* Align to the left of app-menu-wrapper */
-    background-color: var(--card-bg);
-    border: 1px solid var(--input-border);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    right: 0;
+    top: calc(100% + 5px);
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px var(--shadow-color);
     z-index: 1000;
-    min-width: 220px;
-    margin-top: 8px; /* Small gap from the button */
-    padding: 8px 0; /* Padding for top/bottom of the overall menu */
+    min-width: 200px;
+    padding: 5px 0;
 }
 
 .app-menu-item {
     padding: 10px 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* For items like Theme label and its controls */
-    font-size: 0.95rem;
-    color: var(--text);
-    border-bottom: 1px solid var(--input-border);
-}
-
-.app-menu-item:last-child {
-    border-bottom: none;
-}
-
-/* Styling for theme controls inside menu */
-.app-menu-item #dark-toggle {
-    background: none;
-    border: none;
+    justify-content: space-between;
     cursor: pointer;
-    font-size: 1.3rem; /* Match original if desired, or adjust */
-    padding: 0 5px;
-    color: var(--text);
+    color: var(--text-color-primary);
 }
 
-.app-menu-item #theme-color {
-    width: 28px;
-    height: 28px;
-    border: none;
-    outline: none;
+.app-menu-item:hover {
+    background-color: var(--background-color-tertiary);
+}
+
+.app-menu-item label, .app-menu-item button {
+    color: inherit;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: auto; /* Push footer to bottom */
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+    background-color: var(--background-color-secondary);
+}
+
+/* Modal Styles (Generic) */
+.modal {
+    display: none; /* Hidden by default, shown by JS */
+    position: fixed;
+    z-index: 1001; /* Above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim overlay */
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-primary);
+    margin: 10vh auto; /* 10% from top, centered */
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    position: relative;
+}
+
+.close-button {
+    color: var(--text-color-secondary);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
     cursor: pointer;
-    margin-left: 10px;
-    vertical-align: middle; /* Should be handled by flex */
-    padding: 0; /* Remove default padding for color input */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--accent-color);
+}
+
+.modal-log-content pre {
+    background-color: var(--background-color-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 10px;
     border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-family: var(--font-family-monospace);
+    font-size: 0.9em;
 }
 
-/* Specific styling for mute button container if needed, though app-menu-item should cover most */
-#app-menu-sound-controls {
-    /* Mute button itself is styled in JS, this is for the container div */
-    justify-content: flex-start; /* So the button doesn't stretch if it's the only child */
+#adminLogsBtn.button-style:hover {
+    background-color: var(--accent-color);
 }
 
-#app-menu-sound-controls #mute-btn {
-    color: var(--text); /* Ensure mute button text is visible */
+/* AI Chat Widget Styles */
+.ai-assistant-widget {
+    background-color: var(--background-color-secondary);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Styling for placeholder buttons */
-.app-menu-button-style {
-    display: block; /* Make it take full width of menu item */
-    width: calc(100% - 30px); /* Full width minus padding */
-    background: none;
+.ai-assistant-widget h3 {
+    margin-top: 0;
+    color: var(--text-color-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.ai-assistant-widget p {
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+    margin-bottom: 15px;
+}
+
+#ai-chat-window {
+    height: 250px; /* Adjust as needed */
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--background-color-tertiary);
+    border-radius: 5px;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Align textarea and button */
+}
+
+#ai-query-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    resize: vertical; /* Allow vertical resize, but not horizontal */
+    min-height: 40px; /* Ensure it's at least button height */
+}
+
+#ask-ai-btn.button-style { /* Ensure it uses existing button style or define one */
+    padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: var(--text-color-button);
     border: none;
-    text-align: left;
+    border-radius: 5px;
     cursor: pointer;
-    color: var(--text);
-    font-size: 0.95rem; /* Match other menu items */
-    /* padding is handled by .app-menu-item already, but if used standalone: */
-    /* padding: 10px 15px; */ 
+    font-size: 1em;
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
 
-.app-menu-button-style:hover {
-    background-color: var(--input-bg); /* Subtle hover effect */
+#ask-ai-btn.button-style:hover {
+    background-color: var(--accent-color-dark);
 }
 
-/* Ensure dark mode applies correctly to menu items */
-body.dark .app-menu-item,
-body.dark .app-menu-button-style,
-body.dark .app-menu-item #dark-toggle {
-    color: var(--text);
-    border-bottom-color: var(--input-border); /* Use dark mode border color */
+/* Individual Chat Message Styles */
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-body.dark .app-menu-button-style:hover {
-    background-color: var(--input-bg); /* Dark mode hover */
+.user-message {
+    background-color: var(--accent-color-secondary);
+    color: var(--text-color-primary); /* Or a specific color for user text */
+    margin-left: auto; /* Align to the right */
+    border-bottom-right-radius: 5px;
 }
 
-body.dark .app-menu-item:last-child {
-    border-bottom: none;
+.ai-message {
+    background-color: var(--background-color-primary);
+    color: var(--text-color-primary);
+    border: 1px solid var(--border-color); /* Give AI messages a slight border */
+    margin-right: auto; /* Align to the left */
+    border-bottom-left-radius: 5px;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
 }

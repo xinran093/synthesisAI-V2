@@ -1,0 +1,599 @@
+{
+  "network": {
+    "nodes": [
+      {
+        "id": "bsMtRZ2sCfesk4Fns",
+        "name": "RK",
+        "commentCount": 4,
+        "index": 0,
+        "x": 7.0710678118654755,
+        "y": 0,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "6TWPMPvJi4bHmM9Sy",
+        "name": "TA",
+        "commentCount": 4,
+        "index": 1,
+        "x": -9.03088751750192,
+        "y": 8.273032735715967,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "Di3iwWPATxj4aGYkL",
+        "name": "NS",
+        "commentCount": 4,
+        "index": 2,
+        "x": 1.3823220809823638,
+        "y": -15.750847141167634,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "SgLkCqMonywZ2hw7B",
+        "name": "DA",
+        "commentCount": 6,
+        "index": 3,
+        "x": 11.382848792909423,
+        "y": 14.846910566099618,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "dW8udMnacfBC7z4tR",
+        "name": "MA",
+        "commentCount": 5,
+        "index": 4,
+        "x": -20.88892748977138,
+        "y": -3.694957148205299,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "z9KaZEENvmFz9TF7W",
+        "name": "MK",
+        "commentCount": 3,
+        "index": 5,
+        "x": 19.78781566111266,
+        "y": -12.587388583889217,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "8yoJEH4Jgt6qPuEEF",
+        "name": "OG",
+        "commentCount": 4,
+        "index": 6,
+        "x": -6.618637082526906,
+        "y": 24.621000044064004,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "3itJFon8LGFZqYFoh",
+        "name": "ST",
+        "commentCount": 4,
+        "index": 7,
+        "x": -12.62245871740517,
+        "y": -24.303776166007665,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "7kG7ZC28xPnZXngja",
+        "name": "WM",
+        "commentCount": 4,
+        "index": 8,
+        "x": 27.3856864633483,
+        "y": 10.001208773502414,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "oLAaXShR3wngmLEud",
+        "name": "KA",
+        "commentCount": 4,
+        "index": 9,
+        "x": -28.490243449190146,
+        "y": 11.760358336627238,
+        "vy": 0,
+        "vx": 0
+      },
+      {
+        "id": "5DDxSRkPFqzeBNSGp",
+        "name": "EF",
+        "commentCount": 4,
+        "index": 10,
+        "x": 13.734179949820856,
+        "y": -29.34914481047001,
+        "vy": 0,
+        "vx": 0
+      }
+    ],
+    "links": [
+      {
+        "source": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "bsMtRZ2sCfesk4Fns",
+          "name": "RK",
+          "commentCount": 4,
+          "index": 0,
+          "x": 7.0710678118654755,
+          "y": 0,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 2,
+        "index": 0
+      },
+      {
+        "source": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "Di3iwWPATxj4aGYkL",
+          "name": "NS",
+          "commentCount": 4,
+          "index": 2,
+          "x": 1.3823220809823638,
+          "y": -15.750847141167634,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 1
+      },
+      {
+        "source": {
+          "id": "Di3iwWPATxj4aGYkL",
+          "name": "NS",
+          "commentCount": 4,
+          "index": 2,
+          "x": 1.3823220809823638,
+          "y": -15.750847141167634,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "bsMtRZ2sCfesk4Fns",
+          "name": "RK",
+          "commentCount": 4,
+          "index": 0,
+          "x": 7.0710678118654755,
+          "y": 0,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 2
+      },
+      {
+        "source": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "SgLkCqMonywZ2hw7B",
+          "name": "DA",
+          "commentCount": 6,
+          "index": 3,
+          "x": 11.382848792909423,
+          "y": 14.846910566099618,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 3
+      },
+      {
+        "source": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "dW8udMnacfBC7z4tR",
+          "name": "MA",
+          "commentCount": 5,
+          "index": 4,
+          "x": -20.88892748977138,
+          "y": -3.694957148205299,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 4
+      },
+      {
+        "source": {
+          "id": "SgLkCqMonywZ2hw7B",
+          "name": "DA",
+          "commentCount": 6,
+          "index": 3,
+          "x": 11.382848792909423,
+          "y": 14.846910566099618,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "dW8udMnacfBC7z4tR",
+          "name": "MA",
+          "commentCount": 5,
+          "index": 4,
+          "x": -20.88892748977138,
+          "y": -3.694957148205299,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 5
+      },
+      {
+        "source": {
+          "id": "Di3iwWPATxj4aGYkL",
+          "name": "NS",
+          "commentCount": 4,
+          "index": 2,
+          "x": 1.3823220809823638,
+          "y": -15.750847141167634,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "SgLkCqMonywZ2hw7B",
+          "name": "DA",
+          "commentCount": 6,
+          "index": 3,
+          "x": 11.382848792909423,
+          "y": 14.846910566099618,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 6
+      },
+      {
+        "source": {
+          "id": "SgLkCqMonywZ2hw7B",
+          "name": "DA",
+          "commentCount": 6,
+          "index": 3,
+          "x": 11.382848792909423,
+          "y": 14.846910566099618,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "z9KaZEENvmFz9TF7W",
+          "name": "MK",
+          "commentCount": 3,
+          "index": 5,
+          "x": 19.78781566111266,
+          "y": -12.587388583889217,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 7
+      },
+      {
+        "source": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "8yoJEH4Jgt6qPuEEF",
+          "name": "OG",
+          "commentCount": 4,
+          "index": 6,
+          "x": -6.618637082526906,
+          "y": 24.621000044064004,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 8
+      },
+      {
+        "source": {
+          "id": "8yoJEH4Jgt6qPuEEF",
+          "name": "OG",
+          "commentCount": 4,
+          "index": 6,
+          "x": -6.618637082526906,
+          "y": 24.621000044064004,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "dW8udMnacfBC7z4tR",
+          "name": "MA",
+          "commentCount": 5,
+          "index": 4,
+          "x": -20.88892748977138,
+          "y": -3.694957148205299,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 9
+      },
+      {
+        "source": {
+          "id": "7kG7ZC28xPnZXngja",
+          "name": "WM",
+          "commentCount": 4,
+          "index": 8,
+          "x": 27.3856864633483,
+          "y": 10.001208773502414,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "8yoJEH4Jgt6qPuEEF",
+          "name": "OG",
+          "commentCount": 4,
+          "index": 6,
+          "x": -6.618637082526906,
+          "y": 24.621000044064004,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 10
+      },
+      {
+        "source": {
+          "id": "SgLkCqMonywZ2hw7B",
+          "name": "DA",
+          "commentCount": 6,
+          "index": 3,
+          "x": 11.382848792909423,
+          "y": 14.846910566099618,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "oLAaXShR3wngmLEud",
+          "name": "KA",
+          "commentCount": 4,
+          "index": 9,
+          "x": -28.490243449190146,
+          "y": 11.760358336627238,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 11
+      },
+      {
+        "source": {
+          "id": "Di3iwWPATxj4aGYkL",
+          "name": "NS",
+          "commentCount": 4,
+          "index": 2,
+          "x": 1.3823220809823638,
+          "y": -15.750847141167634,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "oLAaXShR3wngmLEud",
+          "name": "KA",
+          "commentCount": 4,
+          "index": 9,
+          "x": -28.490243449190146,
+          "y": 11.760358336627238,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 12
+      },
+      {
+        "source": {
+          "id": "5DDxSRkPFqzeBNSGp",
+          "name": "EF",
+          "commentCount": 4,
+          "index": 10,
+          "x": 13.734179949820856,
+          "y": -29.34914481047001,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "z9KaZEENvmFz9TF7W",
+          "name": "MK",
+          "commentCount": 3,
+          "index": 5,
+          "x": 19.78781566111266,
+          "y": -12.587388583889217,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 13
+      },
+      {
+        "source": {
+          "id": "3itJFon8LGFZqYFoh",
+          "name": "ST",
+          "commentCount": 4,
+          "index": 7,
+          "x": -12.62245871740517,
+          "y": -24.303776166007665,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "5DDxSRkPFqzeBNSGp",
+          "name": "EF",
+          "commentCount": 4,
+          "index": 10,
+          "x": 13.734179949820856,
+          "y": -29.34914481047001,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 14
+      },
+      {
+        "source": {
+          "id": "7kG7ZC28xPnZXngja",
+          "name": "WM",
+          "commentCount": 4,
+          "index": 8,
+          "x": 27.3856864633483,
+          "y": 10.001208773502414,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "z9KaZEENvmFz9TF7W",
+          "name": "MK",
+          "commentCount": 3,
+          "index": 5,
+          "x": 19.78781566111266,
+          "y": -12.587388583889217,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 15
+      },
+      {
+        "source": {
+          "id": "5DDxSRkPFqzeBNSGp",
+          "name": "EF",
+          "commentCount": 4,
+          "index": 10,
+          "x": 13.734179949820856,
+          "y": -29.34914481047001,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "bsMtRZ2sCfesk4Fns",
+          "name": "RK",
+          "commentCount": 4,
+          "index": 0,
+          "x": 7.0710678118654755,
+          "y": 0,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 16
+      },
+      {
+        "source": {
+          "id": "bsMtRZ2sCfesk4Fns",
+          "name": "RK",
+          "commentCount": 4,
+          "index": 0,
+          "x": 7.0710678118654755,
+          "y": 0,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "dW8udMnacfBC7z4tR",
+          "name": "MA",
+          "commentCount": 5,
+          "index": 4,
+          "x": -20.88892748977138,
+          "y": -3.694957148205299,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 17
+      },
+      {
+        "source": {
+          "id": "3itJFon8LGFZqYFoh",
+          "name": "ST",
+          "commentCount": 4,
+          "index": 7,
+          "x": -12.62245871740517,
+          "y": -24.303776166007665,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "oLAaXShR3wngmLEud",
+          "name": "KA",
+          "commentCount": 4,
+          "index": 9,
+          "x": -28.490243449190146,
+          "y": 11.760358336627238,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 18
+      },
+      {
+        "source": {
+          "id": "3itJFon8LGFZqYFoh",
+          "name": "ST",
+          "commentCount": 4,
+          "index": 7,
+          "x": -12.62245871740517,
+          "y": -24.303776166007665,
+          "vy": 0,
+          "vx": 0
+        },
+        "target": {
+          "id": "6TWPMPvJi4bHmM9Sy",
+          "name": "TA",
+          "commentCount": 4,
+          "index": 1,
+          "x": -9.03088751750192,
+          "y": 8.273032735715967,
+          "vy": 0,
+          "vx": 0
+        },
+        "value": 1,
+        "index": 19
+      }
+    ]
+  },
+  "wordCloudText": "I'm very interested by this idea of quantifying collaboration effectiveness and benefits resulting from collaborative gamification (which I studied in my project, but not quite to this extent, admittedly!) these all seem like quantifiable metrics that can be implemented, but if the student has the agency/autonomy to, say, turn their mic and camera off, etc, this affects the ability of the data to be extracted. Body language and tone can be assessed only if it's presented in the first place, and are important to collaborative environments, especially at lower levels of education.﻿#project﻿  I quite emphatically agree with the sentiment that \"Learning is not only about absorbing information and education is not only about learning,\" involving also secondary layers that relate to different types of/multiple intelligences! This is something that is not often seen or cared about (to the extent that it should be) especially in catering to students with multiple different learning styles, engaging in different ways (different user types, as in my project educational practice/case study with gOPAL ﻿#project﻿). It definitely does influence intrinsic motivation and one's ability to sustainably keep studying the material and construct a positive path forward! ﻿@Ryoko Kitadai (she/her)﻿ To add to your discussion, I think that education is no only about learning=, but it's also a place to gain information to be able to apply those skills in the real-world. For example, collaboration with others in the classroom, applies to collaborating or working with others in the future at a job. ﻿@Ryoko Kitadai (she/her)﻿ Based on your comment, I wonder what can instead be used to better quantify collaboration? I also wonder what can be done to better collaborative gamification? The idea of AI as a tool is intriguing to me because I think that there are many people especially students in the K-12 setting who misuse AI and fully rely on it instead of using it as a tool. I believe that it's because students are not trained in using AI, thus the only way they know how to use AI is to receive answers from it. I wonder how we can help students understand AI as a tool? I think that educating people on what AI is and what AI can be used for is important. Many hesitate to use AI due to the lack of knowledge on AI. Furthermore, training on AI is also needed as part of educating people. For example, if teachers were better trained on the usage of AI, then I think that it would lessen the fear and hesitation of using AI. In addition, it would also allow for appropriate usage of AI such as using AI as a tool not as a method to replace something or someone. ﻿@Tiarra Baker﻿ said:The idea of AI as a tool is intriguing to me because I think that there are many people especially students in the K-12 setting who misuse AI and fully rely on it instead of using it as a tool. I believe that it's because students are not trained in using AI, thus the only way they know how to use AI is to receive answers from it. I wonder how we can help students understand AI as a tool?Thank you﻿@Tiarra Baker﻿  for sharing this insightful reflection. I completely agree—positioning AI as a tool rather than a crutch is essential, especially in K-12 settings where students are still developing foundational skills in critical thinking and digital literacy. The misuse or overreliance on AI often stems not from malintent, but from a lack of structured guidance on how to engage with AI thoughtfully and responsibly.To help students understand AI as a tool, I believe we need to embed AI literacy directly into the curriculum. This could include age-appropriate lessons on what AI is, how it works (in simplified terms), and what its limitations are. Practical activities that encourage students to interact with AI—such as prompting AI to brainstorm ideas, compare versions of text, or critique an AI-generated output—can help shift the mindset from passive consumption to active collaboration. ﻿@Ryoko Kitadai (she/her)﻿ said:I quite emphatically agree with the sentiment that \"Learning is not only about absorbing information and education is not only about learning,\" involving also secondary layers that relate to different types of/multiple intelligences! This is something that is not often seen or cared about (to the extent that it should be) especially in catering to students with multiple different learning styles, engaging in different ways (different user types, as in my project educational practice/case study with gOPAL ﻿#project﻿). It definitely does influence intrinsic motivation and one's ability to sustainably keep studying the material and construct a positive path forward!You're absolutely right that education goes far beyond simple information absorption. The point you raise about multiple intelligences and diverse learning styles is so important, especially in light of how often standardized approaches overlook these nuances. Your connection to intrinsic motivation is also key; when students feel seen and supported through varied modes of engagement, they’re far more likely to develop a sustained and meaningful relationship with the material. This part addresses a crucial but often underexplored dimension of AI integration in education: the socio-psychological barriers that hinder its effective use. It draws attention to the persistent challenge of student motivation, noting that only a small fraction—approximately 5%—engage with AI-enabled educational resources long enough to derive meaningful learning outcomes (Weatherholtz et al., 2022). This statistic underscores the need for designing AI tools that not only deliver content but also sustain learner engagement through personalized, interactive, and emotionally attuned experiences. It reimagines AI not as a tool of automation but as a cognitive partner that models complex learning phenomena to support the development and refinement of learners’ mental models. It encourages the design of low-automation, high-agency systems that foster metacognition and learner autonomy. This perspective invites rich pedagogical and ethical questions: How can AI be designed to prompt meaningful self-explanation and conceptual change? What kinds of data or language patterns best indicate a transformation in thinking? How can we ensure that such systems are accessible and culturally responsive, reflecting diverse ways of knowing rather than imposing narrow models of success? Finally, what role should teachers play in mediating student interactions with AI and interpreting computational representations of learning?   AI can be very useful in finding what you are looking for by feeding information into it and having it provide feedback and additional information, or even help write something better or clearer. However, it needs to be monitored and verified with the context provided for the reasons mentioned here. The idea is to provide a system that can be used as a tool, and that is precisely what has been completed, but as with humans, the information needs to be verified for accuracy. A great example is Wikipedia the idea is for a collaborative response, however the information is not verified when it si updated and the information provided can be inaccurate. This is why you do not use education as a resource, as the information provided needs to be more accurate by verifying it through alternative means.  This is an excellent reminder of what the intent for AI is supposed to be when created. When people think about using AI, they believe it is more like an accelerated human intelligence versus artificial intelligence. Some situations need human interaction, as we can weigh things differently and consider other measures, like when you \"read the room,\" a situation that AI cannot do as it does not have the capabilities.   Yes, AI will be better at some things, which is what it is programmed to do. I love that I can write up a blurb, something that may be complex, and then put it into AI to get a well-put-together response, as it takes out the second-guessing that we tend to do, especially in a complicated situation with situational factors.  ﻿@Tiarra Baker﻿ I agree with you!! I think that we are doing much better in education today, embracing AI as a tool, and trying to teach both students and educators how to use AI as such. I think the fear is that people will have AI do the work, and that students are not learning. However, teaching and training accurately and providing the basis for what it can do and do well, while providing the challenges in AI, could help with the process and show that it can be very useful.  ﻿@Tiarra Baker﻿ ﻿@Nansong ZHOU﻿ This is an interesting distinction to do. I guess it also reflects the current debate our society is having about the use of AI - To what extent should we use it, or be allowed to use it ? Should we let it replace humans' job ? Should we restrain ourselves to use a tool that allow us infinite possibility and is able to multiply productivity by 1000 ? I feel like the general \"mainstream\" view about this reflects the one most teachers have towards AI in classroom: it should be used sporadically, by making it easier for you to do your work, rather than doing your work for you. The problem is that the line is often hard to draw between what is honest facilitation/help allowed by technology  (such as looking for the translation or the definition of a word in Google rather than using an old, big dictionnary) and what is academic dishonesty/cheating (just writing an entire essay in english and then copy and paste it through ChatGPT or Google Translate to translate it in the target language) This is true ﻿@Dana McCool﻿ , thank you for the reminder. Indeed, most Opensource AI are basically collecting and mixing all possible data available on every possible topic. And we all know that what is said on the internet is not always true...whether published by AI or by humans ! Fake news or misinformation is a problem we have to be aware about when using AI. Let's not forget that the AI has no brain or autonomy: it simply reproduce what is the most likely to be a convenient or correct answer according to all the available data treated in its system. If the vast majority of people says that the sky is pink tomorrow, AI will probably tell you that the sky is pink...even if it is not. And it could even invent fake (but credible) sources to convince you ! Some very interesting research begin to emerge about that problem.  I personally would like to agree with that sentence...and I was, actually, agreeing with it until recently. However, it seems that AI is becoming stronger and more powerful everyday, to the point where most of people are getting scared of being replaced by AI in their jobs. I don't want to sound pessimistic, and I really hope I am wrong on this one - but regarding the both fascinating and scary progress AI is making everyday in so many different fields, I now doubt that we can say that AI is still poor at many things. 2 years ago with the emergence of Midjourney or Stable Diffusion/ Dall-E, people where still clearly able to recognize and criticize an AI-generated picture. It becomes more and more complicated because they increased to the point to reproduce almost everything perfectly, humans included. AI is now able to generate images, photographs, graphic design, illustration, poetry, essays, songs, etc as well as most artists. It is able to give you advice about law and legal procedure to the point to lawyers or legal advisers are feeling threatened. It is able to simulate a social interaction with a friend or a confident, reproduce human emotion or dialogue when you are in trouble, and simulate compassion and attention to the point where people are preferring virtual AI partners over real ones, or are using AI as a therapist. All of those infinite possibilities reproducing human work as well (sometimes maybe better) as humans, but for free. Can we really still believe that AI is too poor at most of the things we ask it to do to really have a serious impact on human's work ? I'm genuinely asking the question. This is an interesting use of AI to encourage group work in classrooms. I assume it could be an interesting tool for the students (as mentionned in the article) but also for the teacher, since most of the time it is hard for the teacher to keep track of what is exactly going on with each group during group activities in class. In my experience, the teacher circulated between groups and try to help them one by one, and it can lead to encouraging the other groups that are not being observed by the teacher to be distracted or to talk about other things (or switch to their native language in language classes, for example). I guess that those kind of \"tracking\" AI tools could encourage (force ?) students to stay on track and actively participate in group work rather than relying on others. However, I must say I hope it will not turn into a kind of \"Big Brother\" tool that will make the students feel constantly watched, judged and graded by a machine, removing all the authenticity of exchanges.  ﻿@Nansong ZHOU﻿ You have a point there. The question that comes to mind which may be part of the effect. The 5% that engage with AI are they using the AI or are they learning or creating the AI programs and development. Do other students do not use the AI because they do not trust it or are there ulterior motives. Do they believe that the information they will get will be bad or do they not trust themselves to double check the information, think that it is more work that doing the process themselves. I know that here in education we talk about the information being wrong as it is s system that has enough information to put something together, however it does not go onto the internet and do the research. As people are afraid to use it responsibly then the process takes longer as the research does not have enough information to back it up. In order to make tweaks as needed there needs to be use and feedback with the systems. As researchers in AI want AI to be able to learn from itself it needs the data to know. Kind of like people we learn more from being wrong than right many times. When I teach and train this is a concept that I tell my trainees, and they seem to like that I tell them that up front. We should think of using AI in the same manner and then things could even change more quickly in the future upgrades or programs.  ﻿@Dana McCool﻿ I agree; IF a balance is maintained I think we'll be okay. However, with every tool of technology someone will push the boundaries to places that weren't intended in the name of progress. In the desire to do things no one else is doing, get us in more trouble than any invention. We have said, AI will replace humans for this or that, but this statement, position a suggestive measure that AI & Human intelligence is broaden or sharpen by the interaction with one another. I have not heard any discussions on this thought process; I wonder if this is a worthy direction to pursue?  If the purpose of educational technology is to simplify learning the pedagogical requirements, then it's accomplishing its intended task. Altering metacognitive skills is also acceptable as learners need to build their critical thinking capacity, I still believe a line must be draw at some point on the reliance of the technology.    ﻿@Macha Petre﻿ said:This is an interesting distinction to do. I guess it also reflects the current debate our society is having about the use of AI - To what extent should we use it, or be allowed to use it ? Should we let it replace humans' job ? Should we restrain ourselves to use a tool that allow us infinite possibility and is able to multiply productivity by 1000 ? I feel like the general \"mainstream\" view about this reflects the one most teachers have towards AI in classroom: it should be used sporadically, by making it easier for you to do your work, rather than doing your work for you. The problem is that the line is often hard to draw between what is honest facilitation/help allowed by technology (such as looking for the translation or the definition of a word in Google rather than using an old, big dictionnary) and what is academic dishonesty/cheating (just writing an entire essay in english and then copy and paste it through ChatGPT or Google Translate to translate it in the target language)﻿@Macha Petre﻿ You raise an important point: the very dilemma you describe—where technology can both empower and undermine learning—reflects a broader societal negotiation about AI’s role. In the classroom, then, our task is not simply to ban or embrace AI wholesale, but to articulate clear pedagogical boundaries: we permit tools that scaffold students’ work (e.g. quick look‑ups or grammar checks) while requiring authentic engagement for tasks that assess critical thinking or original expression. By embedding AI literacy into our curriculum—teaching when and how to deploy these tools responsibly—we help students navigate that fine line between legitimate support and academic dishonesty, ensuring that productivity gains amplify rather than replace genuine learning. This analogy underscores that while LLMs can produce fluent, grammatically correct responses, they do not grasp meaning the way humans do. For education, this challenges the assumption that AI can serve as a substitute for deep learning or critical thinking ﻿@Macha Petre﻿  You raise an important and increasingly shared concern. As AI systems grow more sophisticated—capable of producing images, texts, and interactions that rival human outputs—it becomes harder to claim they are simply poor substitutes. However, while AI can now mimic the products of human labor with impressive accuracy, it still lacks the processes that give those products depth: intentionality, lived experience, ethical reasoning, and contextual understanding. Rather than dismissing AI’s progress, we might shift the conversation toward what uniquely human capacities we value and how education can cultivate them alongside, not in competition with, intelligent systems This passage importantly highlights that the success of AI in education is not just a technical issue, but a deeply human one. Motivation, trust, and sustained engagement are crucial for learners to benefit meaningfully from AI tools. The fact that only about 5% of students persist long enough to see real gains suggests a need to design AI tools that are not only intelligent but also emotionally and socially responsive. Without addressing these socio-psychological barriers, even the most advanced AI will fall short in real-world educational settings. We need to convince students that the technology is useful and meaningful for them. AI has the potential to be very beneficial. The use of AI has to be explicitly taught to learners along with expectations of what is acceptable and what is not acceptable. Once we are able to set up these norms, students will be more likely to use it correctly. While this will never be 100% true for all users. It can be beneficial for most.  Ethicality will always be a topic of conversation. Bias and individual perspectives is something that will not change. There are values that align in beneficial ways such as all the tasks that it can help with but there are many negatives such as privacy, transparency, and accountability.  \"Stochastic parrot\" really gets to the heart of how LLMs work and their limitations. They do not understand in the way that humans do but can imitate the ways that humans speak and given answers. The LLMs generate what is the most likely answer to the user's question given the data set available to the LLM.  I think an AI education that emphasizes human agency and human-centered design could help build trust in AI tools broadly. Outside of the education field, proponents of AI often push AI tools as a way to eliminate certain jobs and tasks normally done by humans which I think contributes to distrust in AI among some people. In addition, giving people skills for using AI instead of telling them how to use AI enables the type of autonomy that is essential to engaging with a tool beyond a surface level use. This series of studies is interesting given the amount of attention AI has received in previous years. I wonder what specific factors have built this distrust? Also, could building trust in AI among educators require an effort that is educator led? I think this is a really important section to highlight.  Yes, AI can do a lot for us, but it can't replace the knowledge that is learned through complex socio-cultural experiences. It can't tell us how to feel or impart genuine and meaningful experiences, understand how different cultures or people construct meaning in their lives.  As I referenced in a previous post, I also don't think it can solve problems based on a host of ethical considerations and a deep knowledge of your profession, culture and people involved.  I like that this article places it as a partnership tool and I think for many who think they can replace people with AI in some areas, they will regret the outcomes. Perhaps it can be seen as a partner that reduces some our work so that we have more time for the really complex tasks. Is this related to how to use AI in our draft papers - using AI as a partner for feedback and development of our ideas and thoughts, pushing us as opposed to submitting a more ready draft at the end?  I like the idea of instead of just relying on the first answer a la Google, AI pushing us to expand our own intellectual abilities, challenging our way of thinking and expanding our creativity - maybe like a really good mentor would.  Agree with both your comments - AI can be a starting point but still needs to be closely monitored for where it needs edits (which comes with experience and subject knowledge).  We always get a laugh out of emails we sometimes receive from students that use such over the top and flowery language that no one would ever actually use so we know that just did a direct copy and paste.   ﻿@Nansong ZHOU﻿ I appreciate your focus on being accessible, culturally responsive and reflecting diverse ways of knowing.  As I understand it, AI is pulling in everything that is \"out there\" and everything that has already been inputted by other people.  But if the inputs are biased or represent majority culture or certain ways of knowing have been overly used as the source material, this will skew what comes out and is not representative of the larger diversity of thought. ﻿@Mark Pelmore﻿ I agree! To what extent we want to incorporate tech into education would depend on its use.  For instance, I teach academic writing, and AI is a big conversation starter in every class. We teach how to effectively use AI, but we also warn about the drawbacks of AI. It is very apparent when my students use it, and it makes me think whether we should not focus on writing on our own, but rather focus on writing with AI. Because what is the reason to complete argumentative essays with AI, then where does critical thinking go? How do we evolve as writers, knowledge creators, and critical thinkers?  ﻿@Stephanie Emch﻿ I agree. I was preparing materials for my zero beginner ESL class. The topic was physical appearance. All the images generated based on \"brown haired brown eyed man\" were white males in their 30s. Very shutterstock very straightforward. I struggle with this daily. I want to be critical, but I do not have time all the time! I opt for the first link and always remind myself to spend a couple of minutes because I know the information can be biased or misleading. The latest feature of Google AI search is not my favorite tool (and Siri AI thing too!). ﻿@Ogulcan Durmaz﻿ You are right, and this is why so many people are fortunately fighting against the use of AI art. Most people defend the fact that a text or an image can seem perfect when made by AI, but will always have less value than the same text or image made by an human, because the human spent time on it perfectionning their ideas and went to a full authentic creation process. ﻿@Mark Pelmore﻿ I also agree, there has to be a point where the learner is working on their own without the help of technology. An example that comes to mind is students using calculators when working on beginning to intermediate algebra. Some ITSs provide very good worked examples that give students a framework to build their own understanding, but at a certain point the student needs to be able to solve the problem without referring to a list of steps.  ﻿@Elif Varlik﻿ Right! I think this is by design, and part of what Google wants to accomplish, sponsored results/ads, sometimes pushing a certain viewpoint or propaganda, etc. ﻿@Macha Petre﻿ Excellent points, and I think this ties in with later in this reading where it mentions (another good point) that we have to be careful to strike a delicate balance between teacher/student ease of use and accessibility and the potential it gives to advance AI in education. This is why I'm hopeful about the increasingly prominent role AI plays, since its technology its evolving to the point where it can do a lot of the work behind the scenes and not end up having to turn into a Big Brother tool! It can run silently in the background as assistance *whenever necessary* to simplify complicated or inaccessible teacher tasks and not ruin the learning experience. Thank you for that ﻿@Macha Petre﻿ I loved the comment about the pink sky. :) I agree. I think that misinformation is still the same no matter where you get it. Unfortunately, too many people believe that AI is all knowing and believe what is available. ﻿@Katie DeGuzman﻿ I know that AI can be useful with helping to get to a clear understanding, but most people do not think that you still need to adjust to your own voice if you use it. I for example used AI for a very specific rewrite to a faculty member as it had to do with a very complicated visa situation so after I wrote it, I ran it through AI to make sure that what I was writing was clear and concise but then I tailored it to her situation.  ﻿@Mark Pelmore﻿ I very much agree with that statement. It just bothers me that you can take a tool that is supposed to be helpful and turn it into something that has created a bad situation form many. I did some tech training that is required, and it mentioned how AI can be used create well defined cyber-attacks. Things that you typically look for in order to know that it might be an issue. Also, I think anyone can take anything and use it in a harmful way. Sometimes it is the tone and how it is read, the simplest things can become complicated.  I agree with you Katie. AI cannot take away real live situations and real world experiences. I could see this changing with the combination of using Virtual Reality and AI to create real world experiences in the future. I think there needs to be more education on what AI is in general. Not just for eduactors but for others as well. Also an explanation about how to use it in less scientific terms can be beneficial as well."
+}
