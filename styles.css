@@ -116,13 +116,12 @@ textarea:focus, input[type="text"]:focus, input[type="file"]:focus, input[type="
 }
 
 /* Specific App Sections */
-#graph-container, #word-cloud-container {
+.visualization-container {
     border: 1px solid var(--border-color);
     border-radius: 5px;
     margin-bottom: 20px;
     padding: 15px;
     background-color: var(--background-color-primary);
-    flex-grow: 1; /* Allow graph containers to grow */
     display: flex; /* For centering SVG if smaller */
     align-items: center;
     justify-content: center;
@@ -131,8 +130,14 @@ textarea:focus, input[type="text"]:focus, input[type="file"]:focus, input[type="
 #network-graph, #word-cloud {
     display: block; /* SVG default behavior */
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    max-height: 450px; /* Max height for visualizations */
+}
+
+#network-graph {
+    height: 500px; 
+}
+
+#word-cloud {
+    height: 400px; 
 }
 
 #collaborative-writing {

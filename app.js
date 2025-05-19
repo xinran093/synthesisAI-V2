@@ -545,10 +545,16 @@ document.addEventListener('DOMContentLoaded', () => {
     muteBtn.style.padding = '5px';
     muteBtn.innerHTML = soundMuted ? '🔇 Mute Sound' : '🔔 Unmute Sound'; // Add text for clarity
 
+    // Explicit check before appendChild for debugging Cypress
+    if (!soundControlsContainer) {
+        throw new Error("FATAL: soundControlsContainer is null right before appendChild. ID 'app-menu-sound-controls' not found.");
+    }
+
     if (soundControlsContainer && muteBtn) { // Ensure muteBtn is defined before use
         soundControlsContainer.appendChild(muteBtn);
     } else {
-        console.warn('Could not find app-menu-sound-controls or muteBtn is not defined.');
+        // This else block might not be reached if the throw above happens, but kept for logical completeness
+        console.warn('Could not find app-menu-sound-controls or muteBtn is not defined. This warning is after the explicit throw.');
     }
 
     if(muteBtn) { // Ensure muteBtn exists before attaching onclick
