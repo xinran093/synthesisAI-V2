@@ -1,4 +1,95 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- THEME CONTROLS ---
+    const darkToggle = document.getElementById('dark-toggle');
+    const darkIcon = document.getElementById('dark-icon');
+    const themeColor = document.getElementById('theme-color');
+    // Sound mute button
+    let soundMuted = localStorage.getItem('synthai_muted') === 'true';
+    let chime;
+    // Create mute button
+    let muteBtn = document.createElement('button');
+    muteBtn.id = 'mute-btn';
+    muteBtn.title = 'Mute/unmute AI sound';
+    muteBtn.style.background = 'none';
+    muteBtn.style.border = 'none';
+    muteBtn.style.cursor = 'pointer';
+    muteBtn.style.fontSize = '1.4rem';
+    muteBtn.style.marginLeft = '10px';
+    muteBtn.style.verticalAlign = 'middle';
+    muteBtn.innerHTML = soundMuted ? '🔇' : '🔔';
+    document.querySelector('.header-controls').appendChild(muteBtn);
+
+    function playChime() {
+        if (!chime) {
+            // Simple sine wave chime
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.type = 'triangle';
+            o.frequency.value = 740;
+            o.connect(g);
+            g.connect(ctx.destination);
+            g.gain.value = 0.13;
+            o.start();
+            setTimeout(() => { o.frequency.value = 1100; }, 70);
+            setTimeout(() => { g.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.18); }, 120);
+            setTimeout(() => { o.stop(); ctx.close(); }, 250);
+            chime = true;
+            setTimeout(() => { chime = false; }, 350);
+        }
+    }
+
+    muteBtn.onclick = () => {
+        soundMuted = !soundMuted;
+        muteBtn.innerHTML = soundMuted ? '🔇' : '🔔';
+        localStorage.setItem('synthai_muted', soundMuted ? 'true' : 'false');
+    };
+
+    // Dark mode logic
+    function setDarkMode(on) {
+        if (on) {
+            document.body.classList.add('dark');
+            darkIcon.textContent = '☀️';
+            localStorage.setItem('synthai_dark', 'true');
+        } else {
+            document.body.classList.remove('dark');
+            darkIcon.textContent = '🌙';
+            localStorage.setItem('synthai_dark', 'false');
+        }
+    }
+    // Restore user preference
+    setDarkMode(localStorage.getItem('synthai_dark') === 'true');
+    darkToggle.onclick = () => {
+        setDarkMode(!document.body.classList.contains('dark'));
+    };
+
+    // Theme color logic
+    function setAccent(val) {
+        document.documentElement.style.setProperty('--accent', val);
+        // Pick a contrasting accent2 (simple: rotate hue 150deg)
+        const c2 = chroma(val).set('hsl.h', "+150").hex();
+        document.documentElement.style.setProperty('--accent2', c2);
+        localStorage.setItem('synthai_accent', val);
+    }
+    // Try to use chroma.js if available, else fallback
+    function ensureChroma(cb) {
+        if (window.chroma) return cb();
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js';
+        s.onload = cb;
+        document.head.appendChild(s);
+    }
+    themeColor.addEventListener('input', e => {
+        ensureChroma(() => setAccent(e.target.value));
+    });
+    // Restore accent
+    const savedAccent = localStorage.getItem('synthai_accent');
+    if (savedAccent) ensureChroma(() => {
+        themeColor.value = savedAccent;
+        setAccent(savedAccent);
+    });
+    // End of DOMContentLoaded
+});
     const collaborativeWriting = document.getElementById('collaborative-writing');
     const networkSvg = d3.select('#network-graph');
     const cloudSvg = d3.select('#word-cloud');
@@ -29,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         aiResponseDiv.style.opacity = 1;
                         // Confetti burst
                         confettiBurst(aiResponseDiv);
+                        // Play sound
+                        if (!soundMuted) playChime();
                     }, 100);
                 } else {
                     aiResponseDiv.textContent = data.error || 'No response from AI.';
@@ -329,4 +422,3 @@ Comments: ${d.commentCount}`);
             });
         }
     });
-});

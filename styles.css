@@ -1,11 +1,40 @@
+:root {
+    --accent: #6a82fb;
+    --accent2: #fc5c7d;
+    --bg-gradient: linear-gradient(135deg, #f3f8ff 0%, #e9e4fc 100%);
+    --card-bg: rgba(255,255,255,0.97);
+    --text: #222;
+    --header-bg: linear-gradient(90deg, var(--accent) 60%, #00c6ff 100%);
+    --header-text: #fff;
+    --input-bg: #f8fafd;
+    --input-border: #e1e6f9;
+    --shadow: 0 8px 32px 0 rgba(60,60,130,0.13), 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-hover: 0 12px 48px 0 rgba(60,60,130,0.20), 0 4px 16px rgba(0,0,0,0.09);
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #f3f8ff 0%, #e9e4fc 100%);
+    background: var(--bg-gradient);
     min-height: 100vh;
-    color: #222;
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    --accent: #00c6ff;
+    --accent2: #6a82fb;
+    --bg-gradient: linear-gradient(135deg, #181d2a 0%, #232946 100%);
+    --card-bg: #232946;
+    --text: #eaeaea;
+    --header-bg: linear-gradient(90deg, #232946 60%, var(--accent) 100%);
+    --header-text: #fff;
+    --input-bg: #232946;
+    --input-border: #2e3450;
+    --shadow: 0 8px 32px 0 rgba(0,198,255,0.09), 0 2px 8px rgba(0,0,0,0.17);
+    --shadow-hover: 0 12px 48px 0 rgba(0,198,255,0.13), 0 4px 16px rgba(0,0,0,0.23);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -132,12 +161,12 @@ h2 {
     max-height: 400px;
     resize: vertical;
     padding: 20px 18px;
-    border: 2px solid #e1e6f9;
+    border: 2px solid var(--input-border);
     border-radius: 12px;
     font-size: 18px;
     margin-bottom: 18px;
     box-shadow: 0 2px 12px rgba(106,130,251,0.05);
-    background: linear-gradient(135deg, #f8fafd 80%, #f3f8ff 100%);
+    background: linear-gradient(135deg, var(--input-bg) 80%, var(--card-bg) 100%);
     transition: border 0.25s, box-shadow 0.25s, background 0.25s;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-style: normal;
