@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+.left-column {
+    border-right: none;
+}
+
+h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: #333;
+}
+
+#graph-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 700px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 10px;
+}
+
+#network-graph, #word-cloud {
+    flex: 1;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#network-graph {
+    min-height: 400px;
+}
+
+#word-cloud {
+    min-height: 300px;
+}
+
+#word-cloud text {
+    transition: all 0.3s ease;
+}
+
+#word-cloud text:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+#network-graph {
+    width: 100%;
+    height: 100%;
+    min-height: 500px; /* Ensure minimum height */
+}
+
+#network-graph text {
+    pointer-events: none;
+    user-select: none;
+    font-size: 10px; /* Slightly larger text */
+}
+
+#collaborative-writing {
+    width: 100%;
+    height: calc(100% - 60px);
+    resize: none;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+}
