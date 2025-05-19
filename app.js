@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .words(wordCloudData)
             .padding(5)
             .rotate(() => ~~(Math.random() * 2) * 90)  // Random 0 or 90 degree rotation
-            .fontSize(d => Math.sqrt(d.size) * 10)
+            .fontSize(d => d.size)
             .on('end', draw);
 
         function draw(words) {
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cloudGroup.selectAll('text')
                 .data(words)
                 .enter().append('text')
-                .style('font-size', d => `${Math.sqrt(d.size) * 10}px`)
+                .style('font-size', d => `${d.size}px`)
                 .style('fill', (d, i) => d3.schemeCategory10[i % 10])
                 .attr('text-anchor', 'middle')
                 .attr('transform', d => `translate(${d.x},${d.y})rotate(${d.rotate})`)
