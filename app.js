@@ -194,6 +194,38 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => { confetti.remove(); }, 1400);
     }
 
+    document.getElementById('summaryButton').addEventListener('click', function() {
+        summarizeAnnotations();
+    });
+
+    function summarizeAnnotations() {
+        const axios = require('axios'); // Make sure to import axios
+
+async function summarizeAnnotations() {
+    try {
+        const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+            model: "gpt-3.5-turbo", // or any other model you want to use
+            messages: [
+                { role: "user", content: "Please summarize all annotations." }
+            ]
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const summary = response.data.choices[0].message.content;
+        alert(summary); // Display the summary in an alert
+    } catch (error) {
+        console.error("Error fetching summary:", error);
+        alert("Failed to fetch summary. Please try again.");
+    }
+}
+        let summary = "Here is a summary of the annotations..."; // Replace with actual summary logic
+        alert(summary); // Display the summary in an alert
+    }
+
     // Basic auto-save functionality (local storage)
     collaborativeWriting.addEventListener('input', () => {
         localStorage.setItem('collaborativeText', collaborativeWriting.value);
