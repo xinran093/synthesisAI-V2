@@ -1,11 +1,33 @@
+// Sound mute button
+let soundMuted = localStorage.getItem('synthai_muted') === 'true';
+let chime;
+
+function playChime() {
+    if (!chime) {
+        // Simple sine wave chime
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'triangle';
+        o.frequency.value = 740;
+        o.connect(g);
+        g.connect(ctx.destination);
+        g.gain.value = 0.13;
+        o.start();
+        setTimeout(() => { o.frequency.value = 1100; }, 70);
+        setTimeout(() => { g.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.18); }, 120);
+        setTimeout(() => { o.stop(); ctx.close(); }, 250);
+        chime = true;
+        setTimeout(() => { chime = false; }, 350);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- THEME CONTROLS ---
     const darkToggle = document.getElementById('dark-toggle');
     const darkIcon = document.getElementById('dark-icon');
     const themeColor = document.getElementById('theme-color');
     // Sound mute button
-    let soundMuted = localStorage.getItem('synthai_muted') === 'true';
-    let chime;
     // Create mute button
     let muteBtn = document.createElement('button');
     muteBtn.id = 'mute-btn';
@@ -18,26 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     muteBtn.style.verticalAlign = 'middle';
     muteBtn.innerHTML = soundMuted ? '🔇' : '🔔';
     document.querySelector('.header-controls').appendChild(muteBtn);
-
-    function playChime() {
-        if (!chime) {
-            // Simple sine wave chime
-            const ctx = new (window.AudioContext || window.webkitAudioContext)();
-            const o = ctx.createOscillator();
-            const g = ctx.createGain();
-            o.type = 'triangle';
-            o.frequency.value = 740;
-            o.connect(g);
-            g.connect(ctx.destination);
-            g.gain.value = 0.13;
-            o.start();
-            setTimeout(() => { o.frequency.value = 1100; }, 70);
-            setTimeout(() => { g.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.18); }, 120);
-            setTimeout(() => { o.stop(); ctx.close(); }, 250);
-            chime = true;
-            setTimeout(() => { chime = false; }, 350);
-        }
-    }
 
     muteBtn.onclick = () => {
         soundMuted = !soundMuted;
@@ -90,116 +92,117 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // End of DOMContentLoaded
 });
-    const collaborativeWriting = document.getElementById('collaborative-writing');
-    const networkSvg = d3.select('#network-graph');
-    const cloudSvg = d3.select('#word-cloud');
 
-    // --- AI Integration ---
-    const askAiBtn = document.getElementById('ask-ai-btn');
-    const aiResponseDiv = document.getElementById('ai-response');
-    if (askAiBtn && aiResponseDiv && collaborativeWriting) {
-        askAiBtn.addEventListener('click', async () => {
-            const userText = collaborativeWriting.value.trim();
-            if (!userText) {
-                aiResponseDiv.textContent = 'Please enter some text.';
-                return;
-            }
-            aiResponseDiv.textContent = 'Thinking...';
-            try {
-                const response = await fetch('http://localhost:3001/api/ask-ai', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text: userText })
-                });
-                const data = await response.json();
-                if (data.ai) {
-                    aiResponseDiv.textContent = data.ai;
-                    aiResponseDiv.style.opacity = 0;
-                    setTimeout(() => {
-                        aiResponseDiv.style.transition = 'opacity 0.5s';
-                        aiResponseDiv.style.opacity = 1;
-                        // Confetti burst
-                        confettiBurst(aiResponseDiv);
-                        // Play sound
-                        if (!soundMuted) playChime();
-                    }, 100);
-                } else {
-                    aiResponseDiv.textContent = data.error || 'No response from AI.';
-                }
-            } catch (err) {
-                aiResponseDiv.textContent = 'Error connecting to AI service.';
-            }
-        });
-        // Pulse animation for button
-        askAiBtn.addEventListener('mouseenter', () => {
-            askAiBtn.animate([
-                { boxShadow: '0 4px 16px rgba(106,130,251,0.15)' },
-                { boxShadow: '0 8px 32px rgba(252,92,125,0.17)' },
-                { boxShadow: '0 4px 16px rgba(106,130,251,0.15)' }
-            ], { duration: 600, iterations: 1 });
-        });
-    }
+const collaborativeWriting = document.getElementById('collaborative-writing');
+const networkSvg = d3.select('#network-graph');
+const cloudSvg = d3.select('#word-cloud');
 
-    // Fade in collaborative writing and cards
-    window.addEventListener('DOMContentLoaded', () => {
-        const fadeEls = [
-            document.querySelector('.left-column'),
-            document.querySelector('.right-column'),
-            document.getElementById('collaborative-writing')
-        ];
-        fadeEls.forEach(el => {
-            if (el) {
-                el.style.opacity = 0;
-                el.style.transition = 'opacity 1.2s cubic-bezier(.22,1,.36,1)';
-                setTimeout(() => { el.style.opacity = 1; }, 200);
-            }
-        });
-    });
-
-    // Simple confetti burst (SVG)
-    function confettiBurst(target) {
-        const rect = target.getBoundingClientRect();
-        const confetti = document.createElement('div');
-        confetti.style.position = 'absolute';
-        confetti.style.left = rect.left + window.scrollX + rect.width/2 + 'px';
-        confetti.style.top = rect.top + window.scrollY + 10 + 'px';
-        confetti.style.pointerEvents = 'none';
-        confetti.style.zIndex = 9999;
-        confetti.style.width = '0';
-        confetti.style.height = '0';
-        document.body.appendChild(confetti);
-        const colors = ['#6a82fb', '#fc5c7d', '#00c6ff', '#ffd86b', '#43e97b', '#f3f8ff'];
-        for (let i = 0; i < 24; i++) {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = '10px';
-            particle.style.height = '10px';
-            particle.style.borderRadius = '50%';
-            particle.style.background = colors[Math.floor(Math.random()*colors.length)];
-            particle.style.opacity = 0.85;
-            particle.style.transform = 'scale(0.8)';
-            confetti.appendChild(particle);
-            const angle = (Math.PI * 2 * i) / 24;
-            const dist = 48 + Math.random()*24;
-            const x = Math.cos(angle) * dist;
-            const y = Math.sin(angle) * dist;
-            setTimeout(() => {
-                particle.animate([
-                    { transform: 'translate(0,0) scale(0.8)', opacity: 0.9 },
-                    { transform: `translate(${x}px,${y}px) scale(1.1)`, opacity: 0.7 },
-                    { transform: `translate(${x*1.2}px,${y*1.2}px) scale(0.6)`, opacity: 0 }
-                ], { duration: 900 + Math.random()*400, easing: 'cubic-bezier(.22,1,.36,1)' });
-            }, 10);
+// --- AI Integration ---
+const askAiBtn = document.getElementById('ask-ai-btn');
+const aiResponseDiv = document.getElementById('ai-response');
+if (askAiBtn && aiResponseDiv && collaborativeWriting) {
+    askAiBtn.addEventListener('click', async () => {
+        const userText = collaborativeWriting.value.trim();
+        if (!userText) {
+            aiResponseDiv.textContent = 'Please enter some text.';
+            return;
         }
-        setTimeout(() => { confetti.remove(); }, 1400);
-    }
-
-    document.getElementById('summaryButton').addEventListener('click', function() {
-        summarizeAnnotations();
+        aiResponseDiv.textContent = 'Thinking...';
+        try {
+            const response = await fetch('http://localhost:3001/api/ask-ai', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: userText })
+            });
+            const data = await response.json();
+            if (data.ai) {
+                aiResponseDiv.textContent = data.ai;
+                aiResponseDiv.style.opacity = 0;
+                setTimeout(() => {
+                    aiResponseDiv.style.transition = 'opacity 0.5s';
+                    aiResponseDiv.style.opacity = 1;
+                    // Confetti burst
+                    confettiBurst(aiResponseDiv);
+                    // Play sound
+                    if (!soundMuted) playChime();
+                }, 100);
+            } else {
+                aiResponseDiv.textContent = data.error || 'No response from AI.';
+            }
+        } catch (err) {
+            aiResponseDiv.textContent = 'Error connecting to AI service.';
+        }
     });
+    // Pulse animation for button
+    askAiBtn.addEventListener('mouseenter', () => {
+        askAiBtn.animate([
+            { boxShadow: '0 4px 16px rgba(106,130,251,0.15)' },
+            { boxShadow: '0 8px 32px rgba(252,92,125,0.17)' },
+            { boxShadow: '0 4px 16px rgba(106,130,251,0.15)' }
+        ], { duration: 600, iterations: 1 });
+    });
+}
 
-    function summarizeAnnotations() {
-        const axios = require('axios'); // Make sure to import axios
+// Fade in collaborative writing and cards
+window.addEventListener('DOMContentLoaded', () => {
+    const fadeEls = [
+        document.querySelector('.left-column'),
+        document.querySelector('.right-column'),
+        document.getElementById('collaborative-writing')
+    ];
+    fadeEls.forEach(el => {
+        if (el) {
+            el.style.opacity = 0;
+            el.style.transition = 'opacity 1.2s cubic-bezier(.22,1,.36,1)';
+            setTimeout(() => { el.style.opacity = 1; }, 200);
+        }
+    });
+});
+
+// Simple confetti burst (SVG)
+function confettiBurst(target) {
+    const rect = target.getBoundingClientRect();
+    const confetti = document.createElement('div');
+    confetti.style.position = 'absolute';
+    confetti.style.left = rect.left + window.scrollX + rect.width/2 + 'px';
+    confetti.style.top = rect.top + window.scrollY + 10 + 'px';
+    confetti.style.pointerEvents = 'none';
+    confetti.style.zIndex = 9999;
+    confetti.style.width = '0';
+    confetti.style.height = '0';
+    document.body.appendChild(confetti);
+    const colors = ['#6a82fb', '#fc5c7d', '#00c6ff', '#ffd86b', '#43e97b', '#f3f8ff'];
+    for (let i = 0; i < 24; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = '10px';
+        particle.style.height = '10px';
+        particle.style.borderRadius = '50%';
+        particle.style.background = colors[Math.floor(Math.random()*colors.length)];
+        particle.style.opacity = 0.85;
+        particle.style.transform = 'scale(0.8)';
+        confetti.appendChild(particle);
+        const angle = (Math.PI * 2 * i) / 24;
+        const dist = 48 + Math.random()*24;
+        const x = Math.cos(angle) * dist;
+        const y = Math.sin(angle) * dist;
+        setTimeout(() => {
+            particle.animate([
+                { transform: 'translate(0,0) scale(0.8)', opacity: 0.9 },
+                { transform: `translate(${x}px,${y}px) scale(1.1)`, opacity: 0.7 },
+                { transform: `translate(${x*1.2}px,${y*1.2}px) scale(0.6)`, opacity: 0 }
+            ], { duration: 900 + Math.random()*400, easing: 'cubic-bezier(.22,1,.36,1)' });
+        }, 10);
+    }
+    setTimeout(() => { confetti.remove(); }, 1400);
+}
+
+document.getElementById('summaryButton').addEventListener('click', function() {
+    summarizeAnnotations();
+});
+
+function summarizeAnnotations() {
+    const axios = require('axios'); // Make sure to import axios
 
 async function summarizeAnnotations() {
     try {
